@@ -36,6 +36,7 @@ WebMSX Launch URL:
 5 data 35,64,3A,61,35,5F,FF,01,39,62,35,64,35,5F,4A,5F,40,69,3F,69,41,67,3C,62,39,62,FF,01,4E,5F,55,5F,55,64,51,6C,4E,70,49,71,46,71,43,6D,43,6A,4E,5F,FF,01,44,6A,44,6D,46,70,48,70,4C,6F,4D,6C,49,69,44,6A,FF,01,36,68,3E,6A
 6 data 40,67,3C,63,39,63,36,65,36,68,FF,01,7E,0B,89,16,89,5E,FE,01,22,0B,FE,01,3B,0B,FE,01,61,0F,FE,01,6A,1B,FE,01,70,0F,FE,01,7E,5E,FE,01,4B,60,FE,01,2E,39,FF,FF
 ```
+- Original vector data
 
 ```
 7 color 1,15,15:SCREEN 5,3,0: cls :KEYOFF:DEFINTA-Z: :open"grp:"as#1:M=0:I=0:C(0)=4:C(1)=1:C(2)=4:c(3)=14: SX=50:SY=25
@@ -66,5 +67,5 @@ WebMSX Launch URL:
 ```
 100 if M<>255 then 8: else : pset(103,108): print#1,"Kickstart": goto 100
 ```
-Mode 255 ends rendering and draws "kickstart" message. 
+- Mode 255 terminates rendering and draws "kickstart" message. 
 
