@@ -52,7 +52,7 @@ WebMSX Launch URL:
 - SX=50:SY=25: screen position
 
 ```
-8 READ R$:R=VAL("&H"+R$):I=I+1:READ T$:T=VAL("&H"+T$):if R=255 and T=255 then M=255:goto100: else if  R>=254 then C=C(T): M=1+-5*(R=254):goto8
+8 READ R$:R=VAL("&H"+R$):READ T$:T=VAL("&H"+T$):if R=255 and T=255 then M=255:goto100: else if  R>=254 then C=C(T): M=1+-5*(R=254):goto8
 ```
 - read 2 bytes from data: R, T
 - if R=255 and T=255 stream ended
