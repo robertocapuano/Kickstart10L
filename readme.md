@@ -5,7 +5,7 @@ Reference:
 https://retrocomputing.stackexchange.com/questions/13897/why-was-the-kickstart-1-x-insert-floppy-graphic-so-bad
 
 
-![screenshot](screenshot.png)
+![screenshot](kickstart.gif)
 
 Sources are stored at: https://github.com/robertocapuano/Kickstart10L
 
