@@ -40,10 +40,22 @@ WebMSX Launch URL:
 ```
 7 color 1,15,15:SCREEN 5,3,0: cls :KEYOFF:DEFINTA-Z: :open"grp:"as#1:M=0:I=0:C(0)=4:C(1)=1:C(2)=4:c(3)=14: SX=50:SY=25
 ```
+- color 1,15,15: black on white
+- SCREEN 5,3,0: set graphics mode
+- KEYOFF: hide function keys
+- CLS: clear screen
+- DEFINTA-Z: use integer variables
+- open"grp:"as#1: open graphic channel
+- M=0: render mode
+- C(0)=4:C(1)=1:C(2)=4:c(3)=14: color palette
+- SX=50:SY=25: screen position
 
 ```
 8 READ R$:R=VAL("&H"+R$):I=I+1:READ T$:T=VAL("&H"+T$):if R=255 and T=255 then M=255:goto100: else if  R>=254 then C=C(T): M=1+-5*(R=254):goto8
 ```
+- read 2 bytes from data: R, T
+- if R=255 and T=255 stream ended
+- C=C(T): M=1+-5*(R=254): draw mode
 
 ```
 10 if M=1 then X=R: Y=T:M=2:else if M=2then LINE (X+SX,Y+SY)-(R+SX,T+SY) :M=3: else if M=3 then  LINE-(R+SX,T+SY):else paint(R+SX,T+SY),C,1:M=0
