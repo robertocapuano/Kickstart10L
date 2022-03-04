@@ -17,13 +17,13 @@ Game was developed in MSX-BASIC v3 on a MSX2+. Emulator is available at https://
 4. Choose "kickstart.dsk"
 5. type in:
 ```
-load "a:kickstart.bas"
+load "a:kckstrt.bas"
 run
 ```
 
 WebMSX Launch URL:
 
-- https://webmsx.org/?DISK=https://github.com/robertocapuano/Kickstart10L/raw/main/kickstart.dsk&BASIC_RUN=kickstart.bas
+- https://webmsx.org/?DISK=https://github.com/robertocapuano/Kickstart10L/raw/main/kickstart.dsk&BASIC_RUN=kckstrt.bas
 
 
 # Source Description
