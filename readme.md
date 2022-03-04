@@ -60,61 +60,11 @@ WebMSX Launch URL:
 ```
 10 if M=1 then X=R: Y=T:M=2:else if M=2then LINE (X+SX,Y+SY)-(R+SX,T+SY) :M=3: else if M=3 then  LINE-(R+SX,T+SY):else paint(R+SX,T+SY),C,1:M=0
 ```
+- Draw mode 1 (M=1) draws polygons using points from the stream
+- Draw mode 2 (M=2) fills area with a color
 
 ```
 100 if M<>255 then 8: else : pset(103,108): print#1,"Kickstart": goto 100
 ```
+Mode 255 ends rendering and draws "kickstart" message. 
 
-```
-- Decomment line to load Kun BASIC.
-```
-10 screen1,0,0:COLOR2,1,1:KEYOFF:CLS:DEFINTA-Z:B=base(5):R=RND(-TIME):R=4: BB=B+23*32:CB=BASE(6):
-```
-- screen1,0,0: Set text mode 32x24
-- COLOR2,1,1: black color
-- KEYOFF: hide function keys
-- CLS: clear screen
-- DEFINTA-Z: use integer variables
-- B=base(5): base of framebuffer
-- R=RND(-TIME): init random number generator
-- R=4: BB=B+23*32:CB=BASE(6): constants used for base addresses
-
-```
-20  for i=0 to 4: READ R$:VPOKE  CB+8+I,VAL("&H"+R$) : next I
-```
-- load tile sets
-
-```
-100 rem _TURBOON(BB,R)
-```
-- Decomment line to enable turbo mode
-
-```
-105  S=32*24-1:for I=0 to S: vpoke BB+31-I, 64 : next I 
-```
-- scroll screen
-
-```
-110 for I=0 to 31: LL=R* (RND(1)* SIN(I/31 * 3.14)): vpoke BB+I,(8+LL)*8+LL : NEXT I
-```
-- generate random heat values and store them the last screen row
-
-```
-120 for J=0TO20:for I=0 to 31:A=BB-j*32+I:v= vpeek(a)mod8:d=RND(1)*3: AB=A - D +1 - 32: vpoke AB, (8+V)*8+V:NEXT I,J
-```
-- compute heat advection from bottom to top screen
-
-```
-150 K$=INKEY$:K=(K$<>""): R=-K*(4-R) + (1+K)*R:goto110:
-```
-- check key press, R is switched to stop/start generation of new heat values
-
-```
-160 _TURBOOFF
-```
-- Decomment line to end of turbo section
-```
-310 DATA 11, 88, 99,  ba, 98,   64, 73, 82, 91, 100
-
-```
-- tile map
